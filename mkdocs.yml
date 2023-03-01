@@ -12,8 +12,13 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - navigation.sections
+    - content.code.copy
 nav:
     - Home: 'index.md'
+    - Back-end:
+        - Getting Started: 'back-end/getting-started.md'
+        - Type Auth:
+            - Introduction: 'back-end/type-auth/introduction.md'
 extra_css:
   - overrides/css/extra.css
 extra:
@@ -39,4 +44,12 @@ markdown_extensions:
       permalink: true
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
 
