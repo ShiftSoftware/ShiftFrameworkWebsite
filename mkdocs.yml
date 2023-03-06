@@ -17,8 +17,8 @@ nav:
     - Home: 'index.md'
     - Back-end:
         - Getting Started: 'back-end/getting-started.md'
-        - Type Auth:
-            - Introduction: 'back-end/type-auth/introduction.md'
+        # - Type Auth:
+        #     - Introduction: 'back-end/type-auth/introduction.md'
 extra_css:
   - overrides/css/extra.css
 extra:
