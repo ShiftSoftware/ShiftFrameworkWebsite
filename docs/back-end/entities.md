@@ -3,6 +3,7 @@
 ## Introduction
 
 Shift Entities Helps you create data models and database operations faster, by:
+
  -  Inheriting the common attributes from the package.
  -  Implementing history table for each model you create.
  -  Using Repositories for each model and Odata, you can create your CRUD operations faster.
