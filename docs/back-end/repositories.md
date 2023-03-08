@@ -7,7 +7,7 @@ The first step to use Shift Repositories is to create the DTO files for your mod
 First DTO class name it ```ToDoListDTO.cs```, it is for listing the ToDos. Once you create the DTO class, you need to inherit ```ShiftEntityMixedDTO```.
 
 ``` cs hl_lines="1"
-public class ToDoListDTO : ShiftEntityMixedDTO
+public class ToDoListDTO : ShiftEntityListDTO
 {
     public string Title { get; set; }
     public bool Done { get; set; }
@@ -17,7 +17,7 @@ public class ToDoListDTO : ShiftEntityMixedDTO
 Second DTO class name it ```ToDoViewDTO.cs```, it is for viewing the ToDo in detail.
 
 ``` cs
-public class ToDoViewDTO : ShiftEntityMixedDTO
+public class ToDoViewDTO : ShiftEntityDTO
 {
     public string Title { get; set; }
     public string Description { get; set; }
