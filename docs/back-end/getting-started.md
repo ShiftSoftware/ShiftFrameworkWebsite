@@ -1,4 +1,4 @@
-# Getting Started with Shift Framework
+# Getting Started with Shift Framework for Back-end Development
 
 Shift Framework is powerful for developing back-end applications quickly, easily, and efficiently. What makes Shift Framework so powerful is the simplicity and easy to use approach. The framework is consist of different packages for back-end development that make it easy to build secure, scalable, and robust applications.
 
