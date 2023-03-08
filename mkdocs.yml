@@ -24,6 +24,7 @@ nav:
         - Controllers: 'back-end/controllers.md'
     - Front-end:
         - Getting Started: 'front-end/getting-started.md'
+        - List: 'front-end/list.md'
         # - Type Auth:
         #     - Introduction: 'back-end/type-auth/introduction.md'
 extra_css:
