@@ -22,6 +22,8 @@ nav:
         - OData: 'back-end/odata.md'
         - Repositories: 'back-end/repositories.md'
         - Controllers: 'back-end/controllers.md'
+    - Front-end:
+        - Getting Started: 'front-end/getting-started.md'
         # - Type Auth:
         #     - Introduction: 'back-end/type-auth/introduction.md'
 extra_css:
