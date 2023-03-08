@@ -18,6 +18,7 @@ nav:
     - Back-end:
         - Getting Started: 'back-end/getting-started.md'
         - Entities: 'back-end/entities.md'
+        - DTOs: 'back-end/dtos.md'
         - OData: 'back-end/odata.md'
         - Repositories: 'back-end/repositories.md'
         - Controllers: 'back-end/controllers.md'
