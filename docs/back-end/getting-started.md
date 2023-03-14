@@ -18,6 +18,6 @@ For the sake of this tutorial, we will be developing a simple ToDo API using Shi
 
 You need to create a new ASP.NET Core API and name it "ToDoAPI" (Or whatever you like to name it). You can create the project using the following command in your terminal:
 ``` sh
-dotnet new webapi –name <Name of the project>
+dotnet new webapi -n <Name of the project>
 ```
 Or you can create the project using Visual Studio.
