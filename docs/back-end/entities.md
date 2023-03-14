@@ -29,6 +29,7 @@ public class ToDo : ShiftEntity<ToDo>
 ```
 
 !!! Info
+
     The common attributes that will be inherited from the Shift Entities Class are:
     ``` cs
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -51,7 +52,7 @@ public class ToDo : ShiftEntity<ToDo>
 }
 ```
 
-Now we have a data model called ```ToDO``` that inherits ```ShiftEntity``` class.
+Now we have a data model called ```ToDo``` that inherits ```ShiftEntity``` class.
 
 ## Creating the Database
 
@@ -131,7 +132,7 @@ After that, in ```Program.cs```, add the database context to the services.
 ``` cs hl_lines="3"
 // Add services to the container.
 
-builder.Services.AddDbContext<DB>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SQLiteConnection"))); 
+builder.Services.AddDbContext<DB>(x => x.UseSqlite(builder.Configuration.GetConnectionString("SQLiteConnection"))); 
 ```
 
 ### Migrating the Database
