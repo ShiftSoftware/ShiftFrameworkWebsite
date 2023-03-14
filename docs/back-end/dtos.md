@@ -42,12 +42,7 @@ public class ToDo : ShiftEntity<ToDo>
         {
             Title = t.Title,
             Done = t.Done,
-            CreateDate = t.CreateDate,
-            CreatedByUserID = t.CreatedByUserID,
             ID = t.ID,
-            IsDeleted = t.IsDeleted,
-            LastSaveDate = t.LastSaveDate,
-            LastSavedByUserID = t.LastSavedByUserID
         };
     }
 }
