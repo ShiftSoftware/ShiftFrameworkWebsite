@@ -1,8 +1,12 @@
 # Setting Up OData on the Project
 
-Before we create the repositories, we need to set up OData on our project.
+Before we create the repositories, we need to set up OData on our project. So, the first step is to install ``ShiftSoftware.ShiftEntity.Web`` using Nuget Package Manager, or using the following command line in the .NET CLI.
 
-First, we need to create the EDM model inside ```Program.cs```.
+``` sh
+dotnet add package ShiftSoftware.ShiftEntity.Web --version 1.3.13-alpha
+```
+
+Second, we need to create the EDM model inside ```Program.cs```.
 
 ``` cs hl_lines="1-8"
 static IEdmModel GetEdmModel()
