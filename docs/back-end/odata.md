@@ -13,7 +13,7 @@ static IEdmModel GetEdmModel()
 {
     var builder = new ODataConventionModelBuilder();
 
-    builder.EntitySet<ToDoViewDTO>("ToDo");
+    builder.EntitySet<ToDoListDTO>("ToDo");
 
     return builder.GetEdmModel();
 }
