@@ -6,7 +6,7 @@
 
     This tutorial is a continuation of the back-end. In order to follow this tutorial, please implement the back-end first.
 
-Inside the ToDoAPI project in Visual Studio, right click on the project solution and select ``New -> Project``. Then, create a new ``Blazor WebAssembly App`` project and name it ``ToDoUI``.
+Inside the ToDoAPI project in Visual Studio, right click on the project solution and select ``Add -> New Project``. Then, create a new ``Blazor WebAssembly App`` project and name it ``ToDoUI``.
 
 !!! Note
 
@@ -83,9 +83,56 @@ Then, inside ``wwwroot/index.html``, add the following codes.
 </html>
 ```
 
+After that, go to ``App.razor`` and add the following code.
+
+``` razor hl_lines="14"
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p role="alert">Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+<AddMudProviders></AddMudProviders>
+```
+
+Lastly, go to ``Shared/MainLayout.razor`` and add the following code.
+
+``` razor hl_lines="1"
+@inherits ShiftMainLayout
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+```
+
 ## Connecting The ToDoAPI Project With ToDoUI
 
-Inside the ToDoAPI project in Visual Studio, right click on the project solution and select ``New -> Project``. Then, create a new ``Class Library`` project and name it ``Shared``.
+Inside the ToDoAPI project in Visual Studio, right click on the project solution and select ``Add -> New Project``. Then, create a new ``Class Library`` project and name it ``Shared``.
+
+After that, install ``ShiftSoftware.ShiftEntity`` for ``Shared`` project too, by using the NuGet Package Manger or the following command line in the .NET CLI:
+
+``` sh
+dotnet add package ShiftSoftware.ShiftEntity --version 1.3.12-alpha
+```
 
 ``Shared`` project will be used for sharing the DTO classes with the Blazor Project. Therefore, copy ``DTOs`` folder and paste it inside the ``Shared`` project.
 
@@ -108,7 +155,7 @@ Then, go to ``_imports.razor`` and add the folders of the DTOs that we will use 
 @using ToDoAPI.DTOs.ToDo
 ```
 
-Lastly, add the API URL to the HTTP client in ``Program.cs``.
+After that, add the API URL to the HTTP client in ``Program.cs``.
 
 ``` cs hl_lines="5"
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -119,4 +166,14 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("Place Y
 builder.Services.AddShiftServices(config => { });
 
 await builder.Build().RunAsync();
+```
+
+Lastly, Go to ``ToDoAPI`` project and in the ``Program.cs`` add the following code.
+
+``` cs hl_lines="3"
+app.MapControllers();
+
+app.UseCors(x => x.WithOrigins("*").AllowAnyMethod().AllowAnyHeader());
+
+app.Run();
 ```

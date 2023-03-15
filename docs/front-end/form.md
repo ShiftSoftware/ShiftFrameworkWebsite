@@ -1,6 +1,6 @@
 # Creating a Form For Working With The Data
 
-Create a new Razor component inside ``Pages`` folder and name it ``ToDoForm``. Inside the Razor component, add the route like this:
+Create a new Razor component inside ``Pages`` folder and name it ``ToDoForm.razor``. Inside the Razor component, add the route like this:
 
 ``` razor
 @attribute [Route($"/{nameof(ToDoForm)}/{{Key?}}")]
@@ -15,7 +15,7 @@ Then, we need to inherit ``ShiftForm`` like the following example:
 
 After that, we will create ``ShiftEntityForm`` element with the these parameters:
 
-``` razor hl_lines="4-7"
+``` razor hl_lines="4-9"
 @attribute [Route($"/{nameof(ToDoForm)}/{{Key?}}")]
 @inherits ShiftForm<ToDoForm, ToDoViewDTO>
 
