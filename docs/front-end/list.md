@@ -11,5 +11,5 @@ After that, we want to show a list of to dos, for that we will use ``ShiftList``
 ``` razor hl_lines="3"
 @attribute [Route($"/{nameof(ToDoList)}")]
 
-<ShiftList T="@ToDoListDTO" Action="/odata/ToDo"></ShiftList>
+<ShiftList T="@ToDoListDTO" Action="ToDo"></ShiftList>
 ```

@@ -37,7 +37,7 @@ In order the form to conduct the CRUD operations written in the ``ToDoAPI`` proj
                  @bind-Mode="Mode"
                  @ref="FormContainer"
                  @bind-Key="Key"
-                 Action="/api/ToDo">
+                 Action="ToDo">
 
 </ShiftEntityForm>
 ```

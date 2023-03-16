@@ -22,13 +22,21 @@ dotnet add package ShiftSoftware.ShiftBlazor --version 1.0.12-alpha
 
 First, go to ``Program.cs`` and add the Shift Services to the services.
 
-``` cs hl_lines="6"
+``` cs hl_lines="6-14"
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-builder.Services.AddShiftServices(config => { });
+builder.Services.AddShiftServices(config =>
+{
+    config.ShiftConfiguration = option =>
+    {
+        option.BaseAddress = builder.HostEnvironment.BaseAddress;
+        option.ODataPath = "odata";
+        option.ApiPath = "api";
+    };
+});
 
 await builder.Build().RunAsync();
 ```
@@ -157,13 +165,21 @@ Then, go to ``_imports.razor`` and add the folders of the DTOs that we will use 
 
 After that, add the API URL to the HTTP client in ``Program.cs``.
 
-``` cs hl_lines="5"
+``` cs hl_lines="10"
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("Place Your API URL Here") });
-builder.Services.AddShiftServices(config => { });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+builder.Services.AddShiftServices(config =>
+{
+    config.ShiftConfiguration = option =>
+    {
+        option.BaseAddress = "Place Your API URL Here";
+        option.ODataPath = "odata";
+        option.ApiPath = "api";
+    };
+});
 
 await builder.Build().RunAsync();
 ```
