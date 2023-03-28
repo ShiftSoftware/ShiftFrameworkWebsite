@@ -1,23 +1,44 @@
 # Getting Started with Shift Framework for Back-end Development
 
-Shift Framework is powerful for developing back-end applications quickly, easily, and efficiently. What makes Shift Framework so powerful is the simplicity and easy to use approach. The framework is consist of different packages for back-end development that make it easy to build secure, scalable, and robust applications.
+## Setting Up The Project
 
-## Packages for Back-End Development
+First, Open Visual Studio and create a new ``ASP.NET Core Empty`` project, and write the **Project Name** as ``ToDo.API`` and the **Solution Name** as ``ToDo``. After clicking **Next**, untick **Configure for HTTPS** option and create the project.
 
-Each of the back-end development packages provided by Shift Framework is independent of the others. Meaning, you can only use the package you need, or all of them at once. The packages are:
+Second, right-click on the project solutions and select ``Add -> New Project``. Add a ``Class Library`` project and name it ``ToDo.Shared``.
 
-- Entities: A package for working with databases and data models.
-- Identity: A package for managing user authorization and authentication.
-- Type Auth: A package to handle user permission throughout your application.
+Third, right-click on the project solutions again and select ``Add -> New Project``. Add a ``xUnit Test Project`` project and name it ``ToDo.Test``.
 
-## Introduction
+Fourth, right-click on the project solutions again and select ``Add -> New Project``. Add a ``Blazor WebAssembly App Empty`` project and name it ``ToDo.Web``. After clicking **Next**, untick **Configure for HTTPS** option and create the project.
 
-For the sake of this tutorial, we will be developing a simple ToDo API using Shift Frameworks.
+### Adding The Project References
 
-### Creating a New Application
+First, Go to **ToDo.API** and right-click on **Dependencies**, then select ``Add Project Reference..``. Then tick **ToDo.Shared** and **ToDo.Web** projects and click **okay**.
 
-You need to create a new ASP.NET Core API and name it "ToDoAPI" (Or whatever you like to name it). You can create the project using the following command in your terminal:
-``` sh
-dotnet new webapi -n <Name of the project>
+Second, Go to **ToDo.Test** and right-click on **Dependencies**, then select ``Add Project Reference..``. Then tick **ToDo.API** project and click **Okay**.
+
+Third, Go to **ToDo.Web** and right-click on **Dependencies**, then select ``Add Project Reference..``. Then tick **ToDo.Shared** project and click **Okay**.
+
+## Adding The Needed Folders
+
+Right-click on **ToDo.API** project and select ``Add -> New Folder``, then add the following folders with the same structure.
+
 ```
-Or you can create the project using Visual Studio.
+Controllers
+Data
+    -> Entities
+    -> Repositories
+```
+
+After that, right-click on **ToDo.Shared** project and select `` Add -> New Folder``, then add the following folders.
+
+```
+DTOs
+Enums
+```
+
+Lastly, right-click on **ToDo.Web** project and select `` Add -> New Folder``, then add the following folders.
+
+```
+Services
+Shared
+```
