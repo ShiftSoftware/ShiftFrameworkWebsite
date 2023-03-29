@@ -1,112 +1,256 @@
 # Adding Shift Repositories
 
-## Creating Shift Repositories for ToDo Model
+## Adding Repositories To Our API
 
-Create a folder inside the ```Data``` folder and name it ```Repos```. Inside that folder create a class and name it ```ToDoRepo.cs```.
+Inside **Data/Repositories** folder add a class and name it ``ToDoRepository.cs``. In the class, add ``ShiftRepository`` and ``IShiftRepositoryAsync`` to the class like the example below:
 
-First, you need to inherit ```ShiftRepository``` as the following.
+``` cs hl_lines="8-9"
+using ShiftSoftware.ShiftEntity.Core;
+using ToDo.API.Data.Entities;
+using ToDo.Shared.DTOs.ToDo;
 
-``` cs hl_lines="1"
-public class ToDoRepo : ShiftRepository<ToDo>
+namespace ToDo.API.Data.Repositories
 {
-}
-```
-
-Then add a constructor to the class and pass the ```DB``` we created.
-
-``` cs hl_lines="3-8"
-public class ToDoRepo : ShiftRepository<ToDo>
-{
-    private readonly DB db;
-
-    public ToDoRepo(DB db) : base(db, db.ToDos)
+    public class ToDoRepository :
+        ShiftRepository<Entities.ToDo>,
+        IShiftRepositoryAsync<Entities.ToDo, ToDoListDTO, ToDoDTO>
     {
-        this.db = db;
     }
 }
 ```
 
-After that we need to implement ```IShiftRepositoryAsync<ToDo, ToDoListDTO, ToDoViewDTO>``` interface to the class.
+After that, write the constructor and implement Shift Interface methods.
 
-``` cs hl_lines="1"
-public class ToDoRepo : ShiftRepository<ToDo>, IShiftRepositoryAsync<ToDo, ToDoListDTO, ToDoViewDTO>
+``` cs hl_lines="11-13 15-18 20-23 25-28 30-33 35-38 40-43"
+using ShiftSoftware.ShiftEntity.Core;
+using ToDo.API.Data.Entities;
+using ToDo.Shared.DTOs.ToDo;
+
+namespace ToDo.API.Data.Repositories
 {
-    private readonly DB db;
-
-    public ToDoRepo(DB db) : base(db, db.ToDos)
+    public class ToDoRepository :
+        ShiftRepository<Entities.ToDo>,
+        IShiftRepositoryAsync<Entities.ToDo, ToDoListDTO, ToDoDTO>
     {
-        this.db = db;
+        public ToDoRepository(DB db) : base(db, db.ToDos)
+        {
+        }
+
+        public Task<Entities.ToDo> CreateAsync(ToDoDTO dto, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Entities.ToDo> DeleteAsync(Entities.ToDo entity, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Entities.ToDo> FindAsync(long id, DateTime? asOf = null, bool ignoreGlobalFilters = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<ToDoListDTO> OdataList(bool ignoreGlobalFilters = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Entities.ToDo> UpdateAsync(Entities.ToDo entity, ToDoDTO dto, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ToDoDTO> ViewAsync(Entities.ToDo entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 ```
 
-Then implement the interface functions and write the operation of each function, like the example below:
+Then, add database property and change the methods to asynchronous.
 
-``` cs hl_lines="10-19 21-25 27-30 32-40 42-50 52-55"
-public class ToDoRepo : ShiftRepository<ToDo>, IShiftRepositoryAsync<ToDo, ToDoListDTO, ToDoViewDTO>
+``` cs hl_lines="12 16 19 24 29 34 39 44"
+using Microsoft.EntityFrameworkCore;
+using ShiftSoftware.ShiftEntity.Core;
+using ToDo.API.Data.Entities;
+using ToDo.Shared.DTOs.ToDo;
+
+namespace ToDo.API.Data.Repositories
 {
-    private readonly DB db;
-
-    public ToDoRepo(DB db) : base(db, db.ToDos)
+    public class ToDoRepository :
+        ShiftRepository<Entities.ToDo>,
+        IShiftRepositoryAsync<Entities.ToDo, ToDoListDTO, ToDoDTO>
     {
-        this.db = db;
-    }
+        private DB db;
 
-    public async Task<ToDo> CreateAsync(ToDoViewDTO dto, long? userId = null)
-    {
-        var todo = new ToDo().CreateShiftEntity(userId);
+        public ToDoRepository(DB db) : base(db, db.ToDos)
+        {
+            this.db = db;
+        }
 
-        todo.Title = dto.Title;
-        todo.Description = dto.Description;
-        todo.Done= dto.Done;
+        public async Task<Entities.ToDo> CreateAsync(ToDoDTO dto, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
 
-        return todo;
-    }
+        public async Task<Entities.ToDo> DeleteAsync(Entities.ToDo entity, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
 
-    public async Task<ToDo> DeleteAsync(ToDo entity, long? userId = null)
-    {
-        entity.DeleteShiftEntity(userId);
-        return entity;
-    }
+        public async Task<Entities.ToDo> FindAsync(long id, DateTime? asOf = null, bool ignoreGlobalFilters = false)
+        {
+            throw new NotImplementedException();
+        }
 
-    public async Task<ToDo> FindAsync(long id, DateTime? asOf = null, bool ignoreGlobalFilters = false)
-    {
-        return await base.FindAsync(id, asOf, ignoreGlobalFilters: ignoreGlobalFilters);
-    }
+        public async IQueryable<ToDoListDTO> OdataList(bool ignoreGlobalFilters = false)
+        {
+            throw new NotImplementedException();
+        }
 
-    public IQueryable<ToDoListDTO> OdataList(bool ignoreGlobalFilters = false)
-    {
-        var todos = db.ToDos.AsNoTracking();
+        public async Task<Entities.ToDo> UpdateAsync(Entities.ToDo entity, ToDoDTO dto, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
 
-        if (ignoreGlobalFilters)
-            todos = todos.IgnoreQueryFilters();
-
-        return todos.Select(x => (ToDoListDTO)x);
-    }
-
-    public async Task<ToDo> UpdateAsync(ToDo entity, ToDoViewDTO dto, long? userId = null)
-    {
-        entity.UpdateShiftEntity(userId);
-
-        entity.Title = dto.Title;
-        entity.Done = dto.Done;
-
-        return entity;
-    }
-
-    public async Task<ToDoViewDTO> ViewAsync(ToDo entity)
-    {
-        return entity;
+        public async Task<ToDoDTO> ViewAsync(Entities.ToDo entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 ```
 
-After creating the ```ToDoRepo.cs```, we need to register it in the services, inside ```Program.cs```.
+After that, add the following method:
 
-``` cs hl_lines="5"
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+``` cs hl_lines="49-54"
+using Microsoft.EntityFrameworkCore;
+using ShiftSoftware.ShiftEntity.Core;
+using ToDo.API.Data.Entities;
+using ToDo.Shared.DTOs.ToDo;
 
-builder.Services.AddScoped<ToDoRepo>();
+namespace ToDo.API.Data.Repositories
+{
+    public class ToDoRepository :
+        ShiftRepository<Entities.ToDo>,
+        IShiftRepositoryAsync<Entities.ToDo, ToDoListDTO, ToDoDTO>
+    {
+        private DB db;
+
+        public ToDoRepository(DB db) : base(db, db.ToDos)
+        {
+            this.db = db;
+        }
+
+        public async Task<Entities.ToDo> CreateAsync(ToDoDTO dto, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Entities.ToDo> DeleteAsync(Entities.ToDo entity, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Entities.ToDo> FindAsync(long id, DateTime? asOf = null, bool ignoreGlobalFilters = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async IQueryable<ToDoListDTO> OdataList(bool ignoreGlobalFilters = false)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Entities.ToDo> UpdateAsync(Entities.ToDo entity, ToDoDTO dto, long? userId = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ToDoDTO> ViewAsync(Entities.ToDo entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task AssignValue(Entities.ToDo entity, ToDoDTO dto)
+        {
+            entity.Title = dto.Title;
+            entity.Description = dto.Description;
+            entity.Status = dto.Status;
+        }
+    }
+}
+```
+
+Now, start the methods like the example below:
+
+``` cs hl_lines="19-26 28-33 35-38 40-43 45-52 54-57"
+using Microsoft.EntityFrameworkCore;
+using ShiftSoftware.ShiftEntity.Core;
+using ToDo.API.Data.Entities;
+using ToDo.Shared.DTOs.ToDo;
+
+namespace ToDo.API.Data.Repositories
+{
+    public class ToDoRepository :
+        ShiftRepository<Entities.ToDo>,
+        IShiftRepositoryAsync<Entities.ToDo, ToDoListDTO, ToDoDTO>
+    {
+        private DB db;
+
+        public ToDoRepository(DB db) : base(db, db.ToDos)
+        {
+            this.db = db;
+        }
+
+        public async Task<Entities.ToDo> CreateAsync(ToDoDTO dto, long? userId = null)
+        {
+            var entity = new Entities.ToDo().CreateShiftEntity(userId);
+
+            await this.AssignValue(entity, dto);
+
+            return entity;
+        }
+
+        public async Task<Entities.ToDo> DeleteAsync(Entities.ToDo entity, long? userId = null)
+        {
+            entity.DeleteShiftEntity(userId);
+
+            return entity;
+        }
+
+        public async Task<Entities.ToDo> FindAsync(long id, DateTime? asOf = null, bool ignoreGlobalFilters = false)
+        {
+            return await base.FindAsync(id, asOf, ignoreGlobalFilters);
+        }
+
+        public IQueryable<ToDoListDTO> OdataList(bool ignoreGlobalFilters = false)
+        {
+            return this.db.ToDos.Select(x => (ToDoListDTO)x);
+        }
+
+        public async Task<Entities.ToDo> UpdateAsync(Entities.ToDo entity, ToDoDTO dto, long? userId = null)
+        {
+            entity.UpdateShiftEntity(userId);
+
+            await this.AssignValue(entity, dto);
+
+            return entity;
+        }
+
+        public async Task<ToDoDTO> ViewAsync(Entities.ToDo entity)
+        {
+            return entity;
+        }
+
+        public async Task AssignValue(Entities.ToDo entity, ToDoDTO dto)
+        {
+            entity.Title = dto.Title;
+            entity.Description = dto.Description;
+            entity.Status = dto.Status;
+        }
+    }
+}
 ```
