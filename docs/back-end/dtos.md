@@ -1,91 +1,110 @@
-# Createing DTOs for Our Models
+# Adding DTOs to ToDo.Shared
 
-We will create two DTO files, one for when we list the ToDos and one for viewing the ToDos in detail. Create a folder and name it ```DTOs```. Then, create another folder inside the newly created folder, and name it ```ToDo```. Iniside the ```ToDo``` folder create the following classes.
+## Creating The Classes
 
-First DTO class name it ```ToDoListDTO.cs```, it is for listing the ToDos. Once you create the DTO class, you need to inherit ```ShiftEntityListDTO```.
+First, go to **ToDo.Shared** project and right-click on **DTOs** folder, select ``Add -> New Folder`` and name it ``ToDo``. Inside **ToDo** folder, add a class by right-clicking on the **ToDo** folder and name it ``ToDoDTO.cs``. Then, inside the same folder, add another class and name it ``ToDoListDTO.cs``.
 
-``` cs hl_lines="1"
+After that, inside the **Enums** folder, add a class and name it ``ToDoStatus.cs``. In the class, change the *class* to *enum* like the following example:
+
+``` cs hl_lines="3"
+namespace ToDo.Shared.Enums;
+
+public enum ToDoStatus
+{
+}
+```
+
+## Adding Properties to Our Classes
+
+Inside **ToDoStatus.cs** add the follwoing enums:
+
+``` cs hl_lines="5-7"
+namespace ToDo.Shared.Enums;
+
+public enum ToDoStatus
+{
+    New = 1,
+    InProgress = 2,
+    Completed = 3
+}
+```
+
+After that, inside **ToDoDTO.cs** add the following properties to the class:
+
+``` cs hl_lines="9-13"
+using ShiftSoftware.ShiftEntity.Model.Dtos;
+using System.Text.Json.Serialization;
+using ToDo.Shared.Enums;
+
+namespace ToDo.Shared.DTOs.ToDo;
+
+public class ToDoDTO
+{
+    public string Title { get; set; } = default!;
+    public string Description { get; set; } = default!;
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public ToDoStatus Status { get; set; }
+}
+```
+
+Then, inside **ToDoListDTO.cs** add the following properties to the class:
+
+``` cs hl_lines="9-13"
+using ShiftSoftware.ShiftEntity.Model.Dtos;
+using System.Text.Json.Serialization;
+using ToDo.Shared.Enums;
+
+namespace ToDo.Shared.DTOs.ToDo;
+
+public class ToDoListDTO
+{
+    public string Title { get; set; } = default!;
+    public string Description { get; set; } = default!;
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public ToDoStatus Status { get; set; }
+}
+```
+
+## Adding Shift Entity DTO to Our Classes
+
+First, go to NuGet Package Manager and install the latest version of ``ShiftSoftware.ShiftEntity.Model``.
+
+Then, go to **ToDoDTO.cs** and add the following code:
+
+``` cs hl_lines="7"
+using ShiftSoftware.ShiftEntity.Model.Dtos;
+using System.Text.Json.Serialization;
+using ToDo.Shared.Enums;
+
+namespace ToDo.Shared.DTOs.ToDo;
+
+public class ToDoDTO : ShiftEntityDTO
+{
+    public string Title { get; set; } = default!;
+    public string Description { get; set; } = default!;
+
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public ToDoStatus Status { get; set; }
+}
+```
+
+Inside **ToDoListDTO.cs** add the following code:
+
+``` cs hl_lines="7"
+using ShiftSoftware.ShiftEntity.Model.Dtos;
+using System.Text.Json.Serialization;
+using ToDo.Shared.Enums;
+
+namespace ToDo.Shared.DTOs.ToDo;
+
 public class ToDoListDTO : ShiftEntityListDTO
 {
-    public string Title { get; set; }
-    public bool Done { get; set; }
-}
-```
+    public string Title { get; set; } = default!;
+    public string Description { get; set; } = default!;
 
-Second DTO class name it ```ToDoViewDTO.cs```, it is for viewing the ToDo in detail. For this class, you need to inherit ```ShiftEntityDTO```.
-
-``` cs hl_lines="1"
-public class ToDoViewDTO : ShiftEntityDTO
-{
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public bool Done { get; set; }
-}
-```
-
-## Casting Data Model to DTO
-
-In order to map the data models to DTO or vice versa, when we are working with the data. We will write two methods for casting the data model to two different DTOs. Go to ```Data/Entities/ToDo.cs``` and add the following methods.
-
-For casting ```ToDo``` to ```ToDoListDTO```:
-
-``` cs hl_lines="7-20"
-public class ToDo : ShiftEntity<ToDo>
-{
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public bool Done { get; set; }
-
-    public static implicit operator ToDoListDTO(ToDo t)
-    {
-        return new ToDoListDTO
-        {
-            Title = t.Title,
-            Done = t.Done,
-            ID = t.ID,
-        };
-    }
-}
-```
-
-For casting ```ToDo``` to ```ToDoViewDTO```:
-
-``` cs hl_lines="22-36"
-public class ToDo : ShiftEntity<ToDo>
-{
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public bool Done { get; set; }
-
-    public static implicit operator ToDoListDTO(ToDo t)
-    {
-        return new ToDoListDTO
-        {
-            Title = t.Title,
-            Done = t.Done,
-            CreateDate = t.CreateDate,
-            CreatedByUserID = t.CreatedByUserID,
-            ID = t.ID,
-            IsDeleted = t.IsDeleted,
-            LastSaveDate = t.LastSaveDate,
-            LastSavedByUserID = t.LastSavedByUserID
-        };
-    }
-
-    public static implicit operator ToDoViewDTO(ToDo t)
-    {
-        return new ToDoViewDTO
-        {
-            Title = t.Title,
-            Description = t.Description,
-            Done = t.Done,
-            CreateDate = t.CreateDate,
-            CreatedByUserID = t.CreatedByUserID,
-            ID = t.ID,
-            IsDeleted = t.IsDeleted,
-            LastSaveDate = t.LastSaveDate,
-            LastSavedByUserID = t.LastSavedByUserID
-        };
-    }
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public ToDoStatus Status { get; set; }
 }
 ```
