@@ -1,5 +1,25 @@
 # Using Shift Entities
 
+``` hl_lines="2"
+.
+├── ToDo.API
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── Controllers
+│   ├── Data
+│   │   ├── Entities
+│   │   ├── Repositories
+│   ├── appsettings.json
+│   ├── Program.cs
+│
+├── ToDo.Shared
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+```
+
 ## Installing The Packages
 
 Go to NuGet Package Manager and install the following two packages:
@@ -9,7 +29,30 @@ Go to NuGet Package Manager and install the following two packages:
 
 ## Adding Entities To Our API
 
-Right-click on **Data/Entities** folder and add a new class named ``ToDo.cs``. Then, add the following properties to the class:
+Right-click on **Data/Entities** folder and add a new class named ``ToDo.cs``.
+
+``` hl_lines="9"
+.
+├── ToDo.API
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── Controllers
+│   ├── Data
+│   │   ├── Entities
+│   │   │   ├── ToDo.cs
+│   │   ├── Repositories
+│   ├── appsettings.json
+│   ├── Program.cs
+│
+├── ToDo.Shared
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+```
+
+Then, add the following properties to the class:
 
 ``` cs hl_lines="7-9"
 using ToDo.Shared.Enums;
@@ -95,7 +138,31 @@ public class ToDo : ShiftEntity<ToDo>
 
 ## Adding The Database
 
-Inside **Data** folder add a new class and name it ``DB.cs``. Then, add ``ShiftDbConetxt`` to the class and write the constructor.
+Inside **Data** folder add a new class and name it ``DB.cs``.
+
+``` hl_lines="11"
+.
+├── ToDo.API
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── Controllers
+│   ├── Data
+│   │   ├── Entities
+│   │   │   ├── ToDo.cs
+│   │   ├── Repositories
+│   │   ├── DB.cs
+│   ├── appsettings.json
+│   ├── Program.cs
+│
+├── ToDo.Shared
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+```
+
+Then, add ``ShiftDbConetxt`` to the class and write the constructor.
 
 ``` cs hl_lines="6 8-10"
 using Microsoft.EntityFrameworkCore;
