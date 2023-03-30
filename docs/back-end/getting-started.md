@@ -10,9 +10,7 @@ Then, create the following projects inside the same solution by right-clicking o
 2. ``xUnit Test Project``, name it ``ToDo.Test``.
 3. ``Blazor WebAssembly App Empty``, name it ``ToDo.Web``.
 
-??? info
-
-    If you want to know how to create the rest of the projects, please follow the following steps:
+??? info "If you want to know how to create the rest of the projects, please follow these steps:"
 
     1. right-click on the project solutions and select ``Add -> New Project``. Add a ``Class Library`` project and name it ``ToDo.Shared``.
 
