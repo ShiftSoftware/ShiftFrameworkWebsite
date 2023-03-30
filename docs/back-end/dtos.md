@@ -1,10 +1,58 @@
 # Adding DTOs to ToDo.Shared
 
+``` hl_lines="4"
+.
+├── ToDo.API
+│
+├── ToDo.Shared
+│   ├── Dependencies
+│   ├── DTOs
+│   ├── Enums
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+```
+
 ## Creating The Classes
 
 First, go to **ToDo.Shared** project and right-click on **DTOs** folder, select ``Add -> New Folder`` and name it ``ToDo``. Inside **ToDo** folder, add a class by right-clicking on the **ToDo** folder and name it ``ToDoDTO.cs``. Then, inside the same folder, add another class and name it ``ToDoListDTO.cs``.
 
-After that, inside the **Enums** folder, add a class and name it ``ToDoStatus.cs``. In the class, change the *class* to *enum* like the following example:
+``` hl_lines="7-9"
+.
+├── ToDo.API
+│
+├── ToDo.Shared
+│   ├── Dependencies
+│   ├── DTOs
+│   │   ├── ToDo
+│   │   │   ├── ToDoDTO.cs
+│   │   │   ├── ToDoListDTO.cs
+│   ├── Enums
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+```
+
+After that, inside the **Enums** folder, add a class and name it ``ToDoStatus.cs``.
+
+``` hl_lines="7-8"
+.
+├── ToDo.API
+│
+├── ToDo.Shared
+│   ├── Dependencies
+│   ├── DTOs
+│   ├── Enums
+│   │   ├── ToDoStatus.cs
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+```
+
+In the class, change the *class* to *enum* like the following example:
 
 ``` cs hl_lines="3"
 namespace ToDo.Shared.Enums;
