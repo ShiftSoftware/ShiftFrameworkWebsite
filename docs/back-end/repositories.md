@@ -1,8 +1,55 @@
 # Adding Shift Repositories
 
+``` hl_lines="2"
+.
+├── ToDo.API
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── Controllers
+│   ├── Data
+│   │   ├── Entities
+│   │   │   ├── ToDo.cs
+│   │   ├── Repositories
+│   │   ├── DB.cs
+│   ├── appsettings.json
+│   ├── Program.cs
+│
+├── ToDo.Shared
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+```
+
 ## Adding Repositories To Our API
 
-Inside **Data/Repositories** folder add a class and name it ``ToDoRepository.cs``. In the class, add ``ShiftRepository`` and ``IShiftRepositoryAsync`` to the class like the example below:
+Inside **Data/Repositories** folder add a class and name it ``ToDoRepository.cs``.
+
+``` hl_lines="11"
+.
+├── ToDo.API
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── Controllers
+│   ├── Data
+│   │   ├── Entities
+│   │   │   ├── ToDo.cs
+│   │   ├── Repositories
+│   │   │   ├── ToDoRepository.cs
+│   │   ├── DB.cs
+│   ├── appsettings.json
+│   ├── Program.cs
+│
+├── ToDo.Shared
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+```
+
+In the class, add ``ShiftRepository`` and ``IShiftRepositoryAsync`` to the class like the example below:
 
 ``` cs hl_lines="8-9"
 using ShiftSoftware.ShiftEntity.Core;
