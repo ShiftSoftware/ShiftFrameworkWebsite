@@ -30,17 +30,35 @@ Then, create the following projects inside the same solution by right-clicking o
 
     3. right-click on the project solutions again and select ``Add -> New Project``. Add a ``Blazor WebAssembly App Empty`` project and name it ``ToDo.Web``. After clicking **Next**, untick **Configure for HTTPS** option and create the project.
 
-The project structure should look like this:
+The project file structure should look like this:
 
 ```
 ToDo
 ├── ToDo.API
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── appsettings.json
+│   ├── Program.cs
 │
 ├── ToDo.Shared
+│   ├── Dependencies
 │
 ├── ToDo.Test
+│   ├── Dependencies
+│   ├── UnitTest1.cs
+│   ├── Usings.cs
 │
 ├── ToDo.Web
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── wwwroot
+│   ├── Pages
+│   ├── _Imports.razor
+│   ├── App.razor
+│   ├── MainLayout.razor
+│   ├── Program.cs
 ```
 
 ### Adding The Project References
