@@ -4,6 +4,18 @@
 
 Open Visual Studio and create a new ``ASP.NET Core Empty`` project, and write the **Project Name** as ``ToDo.API`` and the **Solution Name** as ``ToDo``. After clicking **Next**, untick **Configure for HTTPS** option (Untick this option for all the project you create throughout this tutorial) and create the project.
 
+The project file structure should look like this:
+
+```
+ToDo
+├── ToDo.API
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── appsettings.json
+│   ├── Program.cs
+```
+
 Then, create the following projects inside the same solution by right-clicking on the project solution and selecting ``Add -> New Project``:
 
 1. ``Class Library``, name it ``ToDo.Shared``.
