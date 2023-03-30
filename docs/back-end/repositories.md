@@ -1,7 +1,7 @@
 # Adding Shift Repositories
 
 ``` hl_lines="2"
-.
+ToDo
 ├── ToDo.API
 │   ├── Connected Services
 │   ├── Dependencies
@@ -27,7 +27,7 @@
 Inside **Data/Repositories** folder add a class and name it ``ToDoRepository.cs``.
 
 ``` hl_lines="11"
-.
+ToDo
 ├── ToDo.API
 │   ├── Connected Services
 │   ├── Dependencies

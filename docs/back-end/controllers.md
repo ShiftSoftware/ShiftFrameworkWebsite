@@ -1,7 +1,7 @@
 # Adding the Controllers
 
 ``` hl_lines="2"
-.
+ToDo
 ├── ToDo.API
 │   ├── Connected Services
 │   ├── Dependencies
@@ -28,7 +28,7 @@
 Inside **Controllers** folder, add a new class and name it ``ToDoController.cs``.
 
 ``` hl_lines="7"
-.
+ToDo
 ├── ToDo.API
 │   ├── Connected Services
 │   ├── Dependencies

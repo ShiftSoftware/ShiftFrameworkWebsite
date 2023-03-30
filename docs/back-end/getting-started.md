@@ -33,7 +33,7 @@ Then, create the following projects inside the same solution by right-clicking o
 The project structure should look like this:
 
 ```
-.
+ToDo
 ├── ToDo.API
 │
 ├── ToDo.Shared
@@ -68,7 +68,7 @@ For **ToDo.Web**, tick **ToDo.Shared**.
 Right-click on **ToDo.API** project and select ``Add -> New Folder``, then add the following folders:
 
 ``` hl_lines="6-9"
-.
+ToDo
 ├── ToDo.API
 │   ├── Connected Services
 │   ├── Dependencies
@@ -90,7 +90,7 @@ Right-click on **ToDo.API** project and select ``Add -> New Folder``, then add t
 Inside **ToDo.Shared** add the following folders:
 
 ``` hl_lines="6-7"
-.
+ToDo
 ├── ToDo.API
 │
 ├── ToDo.Shared
@@ -106,7 +106,7 @@ Inside **ToDo.Shared** add the following folders:
 Inside **ToDo.Web** add the following folders:
 
 ``` hl_lines="14-15"
-.
+ToDo
 ├── ToDo.API
 │
 ├── ToDo.Shared

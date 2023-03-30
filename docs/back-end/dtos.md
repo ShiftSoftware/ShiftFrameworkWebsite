@@ -1,7 +1,7 @@
 # Adding DTOs to ToDo.Shared
 
 ``` hl_lines="4"
-.
+ToDo
 ├── ToDo.API
 │
 ├── ToDo.Shared
@@ -19,7 +19,7 @@
 First, go to **ToDo.Shared** project and right-click on **DTOs** folder, select ``Add -> New Folder`` and name it ``ToDo``. Inside **ToDo** folder, add a class by right-clicking on the **ToDo** folder and name it ``ToDoDTO.cs``. Then, inside the same folder, add another class and name it ``ToDoListDTO.cs``.
 
 ``` hl_lines="7-9"
-.
+ToDo
 ├── ToDo.API
 │
 ├── ToDo.Shared
@@ -38,7 +38,7 @@ First, go to **ToDo.Shared** project and right-click on **DTOs** folder, select 
 After that, inside the **Enums** folder, add a class and name it ``ToDoStatus.cs``.
 
 ``` hl_lines="7-8"
-.
+ToDo
 ├── ToDo.API
 │
 ├── ToDo.Shared

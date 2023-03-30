@@ -1,7 +1,7 @@
 # Using Shift Entities
 
 ``` hl_lines="2"
-.
+ToDo
 ├── ToDo.API
 │   ├── Connected Services
 │   ├── Dependencies
@@ -32,7 +32,7 @@ Go to NuGet Package Manager and install the following two packages:
 Right-click on **Data/Entities** folder and add a new class named ``ToDo.cs``.
 
 ``` hl_lines="9"
-.
+ToDo
 ├── ToDo.API
 │   ├── Connected Services
 │   ├── Dependencies
@@ -141,7 +141,7 @@ public class ToDo : ShiftEntity<ToDo>
 Inside **Data** folder add a new class and name it ``DB.cs``.
 
 ``` hl_lines="11"
-.
+ToDo
 ├── ToDo.API
 │   ├── Connected Services
 │   ├── Dependencies
