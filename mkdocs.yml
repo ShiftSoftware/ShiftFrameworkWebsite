@@ -21,7 +21,8 @@ nav:
         - Entities: 'back-end/entities.md'
         - Repositories: 'back-end/repositories.md'
         - Controllers: 'back-end/controllers.md'
-        - OData: 'back-end/odata.md'
+        - Completing API Setup: 'back-end/complete-api-setup.md'
+        # - OData: 'back-end/odata.md'
         - Deployment: 'back-end/deployment.md'
     - Front-end:
         - Getting Started: 'front-end/getting-started.md'
