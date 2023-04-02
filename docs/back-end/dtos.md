@@ -14,6 +14,10 @@ ToDo
 ├── ToDo.Web
 ```
 
+## Installing The Packages
+
+Open NuGet Package Manager for the **ToDo.Shared** project and install ``ShiftSoftware.ShiftEntity.Model`` package.
+
 ## Creating The Classes
 
 First, go to **ToDo.Shared** project and right-click on **DTOs** folder, select ``Add -> New Folder`` and name it ``ToDo``. Inside **ToDo** folder, add a class by right-clicking on the **ToDo** folder and name it ``ToDoDTO.cs``. Then, inside the same folder, add another class and name it ``ToDoListDTO.cs``.
@@ -52,12 +56,34 @@ ToDo
 ├── ToDo.Web
 ```
 
-In the class, change the *class* to *enum* like the following example:
+In the class, change the *class* to *enum* and *internal* to *public* like the following example:
 
 ``` cs hl_lines="3"
 namespace ToDo.Shared.Enums;
 
 public enum ToDoStatus
+{
+}
+```
+
+Change *internal* to *public* inside the DTOs too.
+
+**ToDoDTO.cs**:
+
+``` cs hl_lines="3"
+namespace ToDo.Shared.DTOs.ToDo;
+
+public class ToDoDTO
+{
+}
+```
+
+**ToDoListDTO.cs**:
+
+``` cs hl_lines="3"
+namespace ToDo.Shared.DTOs.ToDo;
+
+public class ToDoListDTO
 {
 }
 ```
