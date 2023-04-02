@@ -16,7 +16,7 @@ ToDo
 
 ## Installing The Packages
 
-Open NuGet Package Manager and install the following two packages:
+Open NuGet Package Manager and install the following two packages for the project:
 
 1. ``Microsoft.AspNetCore.Mvc.Testing``
 2. ``Microsoft.EntityFrameworkCore``
