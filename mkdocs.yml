@@ -11,8 +11,8 @@ theme:
   features:
     - navigation.tracking
     - navigation.tabs
-    - navigation.sections
     - content.code.copy
+    - navigation.expand
 nav:
     - Home: 'index.md'
     - Back-end:
@@ -24,7 +24,9 @@ nav:
         - Completing API Setup: 'back-end/complete-api-setup.md'
         - Testing: 'back-end/testing.md'
         # - OData: 'back-end/odata.md'
-        - Deployment: 'back-end/deployment.md'
+        - Deployment:
+          - Deploying to Staging: 'back-end/deployment/staging-deployment.md'
+          - Pushing Staging to Production: 'back-end/deployment/production-deployment.md'
     - Front-end:
         - Getting Started: 'front-end/getting-started.md'
         - List: 'front-end/list.md'
