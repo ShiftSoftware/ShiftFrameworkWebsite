@@ -12,7 +12,7 @@ theme:
     - navigation.tracking
     - navigation.tabs
     - content.code.copy
-    - navigation.expand
+    - navigation.collapse
 nav:
     - Home: 'index.md'
     - Back-end:
@@ -23,6 +23,8 @@ nav:
         - Controllers: 'back-end/controllers.md'
         - Completing API Setup: 'back-end/complete-api-setup.md'
         - Testing: 'back-end/testing.md'
+        - Printing:
+          - Printing One ToDo: 'back-end/printing/printing-one-todo.md'
         # - OData: 'back-end/odata.md'
         - Deployment:
           - Deploying to Staging: 'back-end/deployment/staging-deployment.md'
