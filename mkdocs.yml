@@ -25,6 +25,7 @@ nav:
         - Testing: 'back-end/testing.md'
         - Printing:
           - Printing One ToDo: 'back-end/printing/printing-one-todo.md'
+          - Printing List of ToDos: 'back-end/printing/printing-todo-list.md'
         # - OData: 'back-end/odata.md'
         - Deployment:
           - Deploying to Staging: 'back-end/deployment/staging-deployment.md'
