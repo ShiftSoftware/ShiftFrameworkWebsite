@@ -26,6 +26,7 @@ nav:
         - Printing:
           - Printing One ToDo: 'back-end/printing/printing-one-todo.md'
           - Printing List of ToDos: 'back-end/printing/printing-todo-list.md'
+          - Printing Sub List of ToDos: 'back-end/printing/printing-todo-sublist.md'
         # - OData: 'back-end/odata.md'
         - Deployment:
           - Deploying to Staging: 'back-end/deployment/staging-deployment.md'
