@@ -21,13 +21,13 @@ ToDo
 
 ## Pre-requisites
 
-In order to design the PDF template that we want to print, we need to install the Fast Print Designer. You can download it from this [link](https://fastreports.github.io/FastReport.Documentation/FastReportOnlineDesigner.html).
+In order to design the PDF template that we want to print, we need to install the FastReport Designer Community Edition. You can download it from this [link](https://fastreports.github.io/FastReport.Documentation/FastReportDesignerCommunityEdition.html).
 
-## Using Fast Print Designer
+## Using FastReport Designer
 
-After installing the Fast Print Designer, we can start designing the template that we want to print. For the purpose of this tutorial, we will not be going into details on how to use Fast Print Designer.
+After installing the FastReport Designer, we can start designing the template that we want to print. For the purpose of this tutorial, we will not be going into details on how to use FastReport Designer.
 
-First, open the Fast Print Designer, and add a new table as the following example:
+First, open the FastReport Designer, and add a new table as the following example:
 
 |       |  |
 | ----------- | ----------- |

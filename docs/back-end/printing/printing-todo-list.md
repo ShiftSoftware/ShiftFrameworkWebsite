@@ -23,15 +23,19 @@ ToDo
 
 ## Editing The PDF Template
 
-First, open the PDF template inside Fast Print Designer. Then, add a new table as the following example:
+First, open the PDF template inside FastReport Designer. Then, add a new table as the following example:
 
 | ID | Title | Description | Status |
 | ----------- | ----------- | ----------- | ----------- |
 | [AllTasks.ID] | [AllTasks.Title] | [AllTasks.Description] | [AllTasks.Status] |
 
+!!! note
+
+    The second row (The data fields that you want it to be repeated) need to be placed inside a **Data Band**. If it is not placed inside it, it will only show one row instead of a list.
+
 Second, select all the data fields (Second row of the table). Then, go to **Preoperties -> Data** and set **AllowExperession** to `False`.
 
-Third, select **Data** and then go to **Properties -> Design**. Set **(Name)** to ``AllTasksDataBand``.
+Third, select the **Data Band** and then go to **Properties -> Design**. Set **(Name)** to ``AllTasksDataBand``.
 
 ## Editing The Print Route
 

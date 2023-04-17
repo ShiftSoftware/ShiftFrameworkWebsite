@@ -23,7 +23,7 @@ ToDo
 
 ## Editing The PDF Template
 
-First, open the PDF template inside Fast Print Designer. Then, add a new table as the following example:
+First, open the PDF template inside FastReport Designer. Then, add a new table as the following example:
 
 | [Statuses.Name] | | | |
 | ----------- | ----------- | ----------- | ----------- |
@@ -31,13 +31,13 @@ First, open the PDF template inside Fast Print Designer. Then, add a new table a
 
 !!! note
 
-    In order for add the sub list, when you create the column data, right-click on **Data** and select **Add Detail Data Band**. After that, add the row data inside the **Sub Data** Field.
+    In order to add the sub list, when you create the column data, right-click on the **Data Band** (The column, in this case it is [Statuses.Name]) and select **Add Detail Data Band**. After that, add the row data inside the **Sub Data Band** Field.
 
 Second, select all the data fields. Then, go to **Preoperties -> Data** and set **AllowExperession** to `False`.
 
-Third, select **Data** of the first row and then go to **Properties -> Design**. Set **(Name)** to ``StatusDataBand``.
+Third, select the **Data Band** of the first row and then go to **Properties -> Design**. Set **(Name)** to ``StatusDataBand``.
 
-Fourth, select **Data** of the second row and then go to **Properties -> Design**. Set **(Name)** to ``AllTasksByStatusDataBand``.
+Fourth, select the **Data Band** of the second row and then go to **Properties -> Design**. Set **(Name)** to ``AllTasksByStatusDataBand``.
 
 ## Editing The Print Route
 
