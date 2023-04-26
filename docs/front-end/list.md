@@ -84,7 +84,6 @@ Inisde **ToDoList.razor** file, delete the whole code and write the following co
 <ShiftList Action="/ToDo"
            Title="ToDo List"
            T="ToDoListDTO"
-           ComponentType="typeof(ToDoForm)"
            EnablePdfExport
            AutoGenerateColumns="false"
            EnableCsvExcelExport>

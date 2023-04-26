@@ -30,7 +30,57 @@ ToDo
 
 ## Adding a Form
 
-First, create a new razor component in the **_ToDo** folder and name it ``ToDoForm.razor``.
+First, go to **ToDoList.razor** and add the following code:
+
+``` hl_lines="18"
+ToDo
+├── ToDo.API
+│
+├── ToDo.Shared
+│
+├── ToDo.Test
+│
+├── ToDo.Web
+│   ├── Connected Services
+│   ├── Dependencies
+│   ├── Properties
+│   ├── wwwroot
+│   │   ├── css
+│   │   ├── appsettings.Development.json
+│   │   ├── index.html
+│   ├── Pages
+│   │   ├── _ToDo
+│   │   │   ├── ToDoList.razor
+│   ├── Services
+│   ├── Shared
+│   │   ├── MainLayout.razor
+│   │   ├── NavMenu.razor
+│   ├── _Imports.razor
+│   ├── App.razor
+│   ├── Program.cs
+```
+
+``` razor hl_lines="9"
+@attribute [Route($"/{nameof(ToDoList)}")]
+
+@using Syncfusion.Blazor.Grids
+@using ToDo.Shared.DTOs.ToDo
+
+<ShiftList Action="/ToDo"
+           Title="ToDo List"
+           T="ToDoListDTO"
+           ComponentType="typeof(ToDoForm)"
+           EnablePdfExport
+           AutoGenerateColumns="false"
+           EnableCsvExcelExport>
+    <ColumnTemplate>
+        <GridColumn HeaderText="Title" Field="@nameof(ToDoListDTO.Title)" />
+        <GridColumn HeaderText="Description" Field="@nameof(ToDoListDTO.Description)" />
+    </ColumnTemplate>
+</ShiftList>
+```
+
+Second, create a new razor component in the **_ToDo** folder and name it ``ToDoForm.razor``.
 
 ``` hl_lines="19"
 ToDo
