@@ -107,11 +107,11 @@ public class ToDo : ShiftEntity<ToDo>
 
         return new ToDoDTO {
             CreateDate = entity.CreateDate,
-            CreatedByUserID = entity.CreatedByUserID,
+            CreatedByUserID = entity.CreatedByUserID.ToString(),
             IsDeleted = entity.IsDeleted,
             LastSaveDate = entity.LastSaveDate,
-            LastSavedByUserID = entity.LastSavedByUserID,
-            ID = entity.ID,
+            LastSavedByUserID = entity.LastSavedByUserID.ToString(),
+            ID = entity.ID.ToString(),
 
             Description = entity.Description,
             Status = entity.Status,
@@ -126,7 +126,7 @@ public class ToDo : ShiftEntity<ToDo>
 
         return new ToDoListDTO
         {
-            ID = entity.ID,
+            ID = entity.ID.ToString(),
 
             Description = entity.Description,
             Status = entity.Status,

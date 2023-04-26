@@ -105,7 +105,7 @@ public enum ToDoStatus
 
 After that, inside **ToDoDTO.cs** add the following properties to the class:
 
-``` cs hl_lines="9-13"
+``` cs hl_lines="9-14"
 using ShiftSoftware.ShiftEntity.Model.Dtos;
 using System.Text.Json.Serialization;
 using ToDo.Shared.Enums;
@@ -114,6 +114,7 @@ namespace ToDo.Shared.DTOs.ToDo;
 
 public class ToDoDTO
 {
+    public override string? ID { get; set; }
     public string Title { get; set; } = default!;
     public string Description { get; set; } = default!;
 
@@ -124,7 +125,7 @@ public class ToDoDTO
 
 Then, inside **ToDoListDTO.cs** add the following properties to the class:
 
-``` cs hl_lines="9-13"
+``` cs hl_lines="9-14"
 using ShiftSoftware.ShiftEntity.Model.Dtos;
 using System.Text.Json.Serialization;
 using ToDo.Shared.Enums;
@@ -133,6 +134,7 @@ namespace ToDo.Shared.DTOs.ToDo;
 
 public class ToDoListDTO
 {
+    public override string? ID { get; set; }
     public string Title { get; set; } = default!;
     public string Description { get; set; } = default!;
 
@@ -156,6 +158,7 @@ namespace ToDo.Shared.DTOs.ToDo;
 
 public class ToDoDTO : ShiftEntityDTO
 {
+    public override string? ID { get; set; }
     public string Title { get; set; } = default!;
     public string Description { get; set; } = default!;
 
@@ -175,6 +178,7 @@ namespace ToDo.Shared.DTOs.ToDo;
 
 public class ToDoListDTO : ShiftEntityListDTO
 {
+    public override string? ID { get; set; }
     public string Title { get; set; } = default!;
     public string Description { get; set; } = default!;
 
